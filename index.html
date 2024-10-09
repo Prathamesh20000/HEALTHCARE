@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Chatbot | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #1f8fc1;
+            padding: 20px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu li {
+            margin: 0 15px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #ffea8a;
+        }
+
+        .cta-button {
+            padding: 10px 20px;
+            background-color: #ff6f61; /* Bright color for visibility */
+            color: #fff;
+            border-radius: 20px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #ff4b3a; /* Slightly darker shade on hover */
+            transform: scale(1.05); /* Slight scale effect on hover */
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #e3f7fc;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin: 20px 0;
+            color: #555;
+        }
+
+        .hero .cta-button, .secondary-cta {
+            margin: 15px;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .hero .cta-button {
+            background-color: #1f8fc1;
+        }
+
+        .hero .secondary-cta {
+            background-color: transparent;
+            border: 2px solid #1f8fc1;
+            color: #1f8fc1;
+        }
+
+        .hero .cta-button:hover, .secondary-cta:hover {
+            background-color: #ffea8a;
+            color: #333;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .feature-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background-color: #f9fafb;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            width: 30%;
+        }
+
+        .feature-card img {
+            width: 50px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        @media screen and (max-width: 768px) {
+            .feature-card {
+                width: 100%;
+            }
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background-color: #eaf5fb;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            background-color: #fff;
+            padding: 20px;
+            width: 30%;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        @media screen and (max-width: 768px) {
+            .step {
+                width: 100%;
+            }
+        }
+
+        .step:hover {
+            transform: translateY(-10px);
+        }
+
+        .step h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .step p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .testimonial-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .testimonial {
+            background-color: #f9fafb;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            width: 45%;
+        }
+
+        @media screen and (max-width: 768px) {
+            .testimonial {
+                width: 100%;
+            }
+        }
+
+        .testimonial:hover {
+            transform: translateY(-10px);
+        }
+
+        .testimonial p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .testimonial strong {
+            display: block;
+            margin-top: 15px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1f8fc1;
+            padding: 20px 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ffea8a;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h1>MediAssist</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="profile.php" class="cta-button">Profile</a></li>
+                    <li><a href="logout.php" class="cta-button" onclick="confirmLogout()">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+
+    <!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Welcome to MediAssist</h1>
+        <p>Your virtual assistant for health-related queries.</p>
+        <a href="chatbot.html" class="cta-button">Start Your Chat</a>
+        <a href="#about" class="secondary-cta">Learn More</a>
+    </div>
+</section>
+
+
+    <!-- Features Section -->
+    <section id="services" class="features">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <img src="icon-24-7.png" alt="24/7 Availability">
+                    <h3>24/7 Availability</h3>
+                    <p>Get help anytime, anywhere.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="icon-instant.png" alt="Instant Responses">
+                    <h3>Instant Responses</h3>
+                    <p>Receive immediate answers to your questions.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="icon-personalized.png" alt="Personalized Advice">
+                    <h3>Personalized Advice</h3>
+                    <p>Get tailored medical recommendations based on your needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="about" class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <h3>Step 1: Initiate Chat</h3>
+                    <p>Start a conversation with our chatbot.</p>
+                </div>
+                <div class="step">
+                    <h3>Step 2: Ask Questions</h3>
+                    <p>Interact with the chatbot and ask your health-related questions.</p>
+                </div>
+                <div class="step">
+                    <h3>Step 3: Receive Advice</h3>
+                    <p>Get personalized medical advice instantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>"HealthBot has been a lifesaver! Quick and accurate responses every time."</p>
+                    <p><strong>Jane Doe</strong></p>
+                </div>
+                <div class="testimonial">
+                    <p>"I love how easy it is to get medical advice without waiting for hours."</p>
+                    <p><strong>John Smith</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HealthBot. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+
+
+
+<script>
+    function confirmLogout() {
+        if (confirm("Are you sure you want to logout?")) {
+            // Redirect to logout.php with a query parameter
+            window.location.href = "logout.php?redirect=success";
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('redirect') === 'success') {
+            alert("You have successfully logged out.");
+            // Redirect to the login/signup page after the alert
+            setTimeout(function() {
+                window.location.href = "index.php";
+            }, 1000); // Delay for the alert to be visible
+        }
+    });
+</script>
+</head>
+<body>
+
